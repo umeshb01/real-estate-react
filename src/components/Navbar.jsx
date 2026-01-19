@@ -20,9 +20,9 @@ export default function Navbar() {
             <img src={assets.logo} alt="logo" className=" " />
             <ul className=" hidden md:flex gap-3 text-white">
                 <a href="#Header" className=" cursor-pointer hover:gray-300"> Home </a>
-                 <a href="#Header" className=" cursor-pointer hover:gray-300">About</a>
-                  <a href="#Header" className=" cursor-pointer hover:gray-300">Projects</a>
-                   <a href="#Header" className=" cursor-pointer hover:gray-300">Testemonials</a>
+                 <a href="#About" className=" cursor-pointer hover:gray-300">About</a>
+                  <a href="#Projects" className=" cursor-pointer hover:gray-300">Projects</a>
+                   <a href="#Testimonials" className=" cursor-pointer hover:gray-300">Testimonials</a>
                 
             </ul>
             <button className=" hidden md:block  bg-white rounded-full px-8 py-2 ">Sign up</button>
