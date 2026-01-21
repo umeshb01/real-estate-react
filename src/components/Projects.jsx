@@ -1,9 +1,26 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { assets,projectsData } from "../assets/assets"
 import { ChevronRight } from "lucide-react"
 export default function Projects() {
     const[currentIndex,setCurrentIndex]= useState(0);
     const[cardToShow,setCardToShow]= useState(1 )
+    useEffect(()=>{
+        const updateCardsToShow =()=>{
+
+             if(window.innerWidth>=1024){
+            setCardToShow(projectsData.length);
+        }
+        else{
+            setCardToShow(1)
+        }
+        }
+        updateCardsToShow();
+        window.addEventListener ('resize',updateCardsToShow)
+        return ()=> window.removeEventListener ('resize',updateCardsToShow)
+       
+
+
+    },[])
     const nextProject =()=>{
         setCurrentIndex((prevIndex)=>(prevIndex+1)%projectsData.length)
     }
@@ -28,7 +45,6 @@ export default function Projects() {
                 </button>
 
             </div>
-           {/* project slider container */}
            
            {/* Slider container */}
 <div className="overflow-hidden">
@@ -56,7 +72,7 @@ export default function Projects() {
               {project.title}
             </h2>
             <p className="text-sm text-gray-500">
-              {project.price} <span className="mx-1">|</span> {project.location}
+              {project.price} <span className="px-1">|</span> {project.location}
             </p>
           </div>
         </div>
